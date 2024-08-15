@@ -89,20 +89,19 @@ function playGame()
 {
     let humanScore = 0;
     let computerScore = 0;
-    for(let x = 0; x < 5; x++)
-    {
-        let winner = playRound();
     
-        if(winner == "H")
-        {
-            humanScore++;
-        }
-        else if(winner == "C")
-        {
-            computerScore++;
-        }
-        console.log("Human Score: "+humanScore+"\nComputer Score: "+computerScore);
+    let winner = playRound();
+    
+    if(winner == "H")
+    {
+        humanScore++;
     }
+    else if(winner == "C")
+    {
+        computerScore++;
+    }
+    console.log("Human Score: "+humanScore+"\nComputer Score: "+computerScore);
+    
     if(humanScore > computerScore)
     {
         console.log("You Win! Congrats!")
