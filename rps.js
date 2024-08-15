@@ -1,8 +1,8 @@
 console.log("Hello World");
 console.log(Math.floor(Math.random()*3));
 //0: rock, 1: scissors, 2: paper
-const result = document.querySelector("#result");
-const displayResult = document.createElement("div")
+let result = document.querySelector("#result");
+
 
 function getComputerChoice() {
     return Math.floor(Math.random()*3);
@@ -38,20 +38,20 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
         {
             if(computerChoice == humanChoice)
             {
-                //console.log("Tie!");
+                console.log("Tie!");
                 result = "Tie!";
                 return "T";
             }
             else if(computerChoice == 1)
             {
-                //console.log("You Win! Rock Beats Scissors");
+                console.log("You Win! Rock Beats Scissors");
                 result = "You Win! Rock Beats Scissors"
                 return "H";
                
             }
             else
             {
-                //console.log("You Lose! Paper Beats Rock");
+                console.log("You Lose! Paper Beats Rock");
                 result = "You Lose! Paper Beats Rock";
                 return "C";
             }
@@ -61,20 +61,20 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
         {
             if(computerChoice == 0)
             {
-                //console.log("You Lose! Rock Beats Scissors");
+                console.log("You Lose! Rock Beats Scissors");
                 result = "You Lose! Rock Beats Scissors";
                 return "C";
                
             }    
             else if(computerChoice == humanChoice)
             {
-                //console.log("Tie!");
+                console.log("Tie!");
                 result = "Tie!";
                 return "T";
             }
             else
             {
-                //console.log("You Win! Scissors Beats Paper");
+                console.log("You Win! Scissors Beats Paper");
                 result = "You Win! Scissors Beats Paper";
                 return "H";
             }
