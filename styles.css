@@ -13,3 +13,9 @@ button {
     justify-content: center;
 
 }
+
+.result {
+    display: flex;
+    justify-content: center;
+    
+}
