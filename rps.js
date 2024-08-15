@@ -124,4 +124,7 @@ function playGame()
 
 }
 
-console.log(playGame());
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissors = document.createElement("button");
+
