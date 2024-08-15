@@ -124,7 +124,18 @@ function playGame()
 
 }
 
-const rock = document.createElement("button");
-const paper = document.createElement("button");
-const scissors = document.createElement("button");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 
+rock.addEventListener('click', () =>{
+    playRound(0);
+});
+
+scissors.addEventListener('click', ()=>{
+    playRound(1);
+});
+
+paper.addEventListener('click', ()=>{
+    playRound(2);
+})
