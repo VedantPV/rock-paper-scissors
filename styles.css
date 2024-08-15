@@ -1,0 +1,15 @@
+div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+ 
+}
+
+button {
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+
+}
