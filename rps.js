@@ -140,12 +140,15 @@ container.appendChild(paper);
 container.appendChild(scissors);
 
 rock.addEventListener('click', () =>{
-    playRound(0);
     
-    console.log(result);
-    resultContainer.append(result);
-    result = ` (You: ${hScore} Computer: ${cScore}) | `;
-    resultContainer.append(result);
+    if(numOfIter <= 5)
+    {
+        playRound(0);
+        resultContainer.append(result);
+        result = ` (You: ${hScore} Computer: ${cScore}) | `;
+        resultContainer.append(result);
+    }
+    
 
     if(numOfIter == 5)
     {
@@ -156,6 +159,7 @@ rock.addEventListener('click', () =>{
            
             const fRContainer = document.querySelector("#finalResult");
             fRContainer.append(finalResult);
+           
         }
         else if(cScore > hScore)
         {
@@ -164,6 +168,7 @@ rock.addEventListener('click', () =>{
             
             const fRContainer = document.querySelector("#finalResult");
             fRContainer.append(finalResult);
+            
         }
         else
         {
@@ -171,28 +176,127 @@ rock.addEventListener('click', () =>{
             finalResult.textContent = "It's a tie?????????";
             const fRContainer = document.querySelector("#finalResult");
             fRContainer.append(finalResult);
+           
         }
+    }
+    else if(numOfIter > 5){
+        const gameOverContainer = document.querySelector("#gameOver");
+        const gameOverText = document.createElement("div");
+        gameOverText.textContent = "Refresh the Page to Play Again";
+        
+        gameOverContainer.append(gameOverText);
     }
 
     
 });
 
 scissors.addEventListener('click', ()=>{
-    playRound(1);
-    resultContainer.append(result);
-    result = ` (You: ${hScore} Computer: ${cScore}) | `;
-    resultContainer.append(result);
+    if(numOfIter <= 5)
+        {
+            playRound(1);
+            resultContainer.append(result);
+            result = ` (You: ${hScore} Computer: ${cScore}) | `;
+            resultContainer.append(result);
+        }
+        
+    
+        if(numOfIter == 5)
+        {
+            if(hScore > cScore)
+            {
+                finalResult.textContent = "You are the winner!";
+                finalResult.setAttribute("style", "color: green");
+               
+                const fRContainer = document.querySelector("#finalResult");
+                fRContainer.append(finalResult);
+               
+            }
+            else if(cScore > hScore)
+            {
+                finalResult.textContent = "You Lose! Good Day Sir!";
+                finalResult.setAttribute("style", "color: red");
+                
+                const fRContainer = document.querySelector("#finalResult");
+                fRContainer.append(finalResult);
+                
+            }
+            else
+            {
+                finalResult.setAttribute("style", "color: blue");
+                finalResult.textContent = "It's a tie?????????";
+                const fRContainer = document.querySelector("#finalResult");
+                fRContainer.append(finalResult);
+               
+            }
+        }
+        else if(numOfIter > 5){
+            const gameOverContainer = document.querySelector("#gameOver");
+            const gameOverText = document.createElement("div");
+            gameOverText.textContent = "Refresh the Page to Play Again";
+            
+            gameOverContainer.append(gameOverText);
+        }
+    
+        
 
 });
 
 paper.addEventListener('click', ()=>{
-    playRound(2);
-    resultContainer.append(result);
-    result = ` (You: ${hScore} Computer: ${cScore}) | `;
-    resultContainer.append(result);
-})
+    if(numOfIter <= 5)
+        {
+            playRound(2);
+            resultContainer.append(result);
+            result = ` (You: ${hScore} Computer: ${cScore}) | `;
+            resultContainer.append(result);
+        }
+        
+    
+        if(numOfIter == 5)
+        {
+            if(hScore > cScore)
+            {
+                finalResult.textContent = "You are the winner!";
+                finalResult.setAttribute("style", "color: green");
+               
+                const fRContainer = document.querySelector("#finalResult");
+                fRContainer.append(finalResult);
+               
+            }
+            else if(cScore > hScore)
+            {
+                finalResult.textContent = "You Lose! Good Day Sir!";
+                finalResult.setAttribute("style", "color: red");
+                
+                const fRContainer = document.querySelector("#finalResult");
+                fRContainer.append(finalResult);
+                
+            }
+            else
+            {
+                finalResult.setAttribute("style", "color: blue");
+                finalResult.textContent = "It's a tie?????????";
+                const fRContainer = document.querySelector("#finalResult");
+                fRContainer.append(finalResult);
+               
+            }
+        }
+        else if(numOfIter > 5){
+            const gameOverContainer = document.querySelector("#gameOver");
+            const gameOverText = document.createElement("div");
+            gameOverText.textContent = "Refresh the Page to Play Again";
+            
+            gameOverContainer.append(gameOverText);
+        }
+    
+        
+});
 
-
+function stopGame()
+{
+    rock.preventDefault();
+    paper.preventDefault();
+    scissors.preventDefault();
+}
 
 
 

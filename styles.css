@@ -19,3 +19,9 @@ button {
     justify-content: center;
     
 }
+
+.gameOver {
+    display: inline;
+    color: salmon;
+    
+}
