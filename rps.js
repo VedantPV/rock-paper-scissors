@@ -1,8 +1,10 @@
 console.log("Hello World");
 console.log(Math.floor(Math.random()*3));
 //0: rock, 1: scissors, 2: paper
-let result = document.querySelector("#result");
-
+let result = document.createElement("span");
+const resultContainer = document.querySelector("#result");
+let hScore = 0;
+let cScore = 0;
 
 function getComputerChoice() {
     return Math.floor(Math.random()*3);
@@ -31,6 +33,8 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
+    
+    
     console.log(humanChoice);
     console.log(computerChoice);
   
@@ -45,7 +49,8 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
             else if(computerChoice == 1)
             {
                 console.log("You Win! Rock Beats Scissors");
-                result = "You Win! Rock Beats Scissors"
+                result = "You Win! Rock Beats Scissors";
+                hScore++;
                 return "H";
                
             }
@@ -53,6 +58,7 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
             {
                 console.log("You Lose! Paper Beats Rock");
                 result = "You Lose! Paper Beats Rock";
+                cScore++;
                 return "C";
             }
         }
@@ -63,6 +69,7 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
             {
                 console.log("You Lose! Rock Beats Scissors");
                 result = "You Lose! Rock Beats Scissors";
+                cScore++;
                 return "C";
                
             }    
@@ -76,6 +83,7 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
             {
                 console.log("You Win! Scissors Beats Paper");
                 result = "You Win! Scissors Beats Paper";
+                hScore++;
                 return "H";
             }
         }
@@ -86,6 +94,7 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
             {
                 console.log("You Win! Paper Beats Rock");
                 result = "You Win! Paper Beats Rock";
+                hScore++;
                 return "H";
                
             }
@@ -93,6 +102,8 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
             {
                 console.log("You Lose! Scissors Beats Paper");
                 result = "You Lose! Scissors Beats Paper";
+                cScore++;
+                console.log(result);
                 return "C";
              
             }
@@ -111,22 +122,35 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const container = document.querySelector("#container");
 
+container.appendChild(rock);
+container.appendChild(paper);
+container.appendChild(scissors);
 
 rock.addEventListener('click', () =>{
     playRound(0);
+    console.log(result);
+    resultContainer.append(result);
+    result = ` (You: ${hScore} Computer: ${cScore}) | `;
+    resultContainer.append(result);
+
+    
 });
 
 scissors.addEventListener('click', ()=>{
     playRound(1);
+    resultContainer.append(result);
+    result = ` (You: ${hScore} Computer: ${cScore}) | `;
+    resultContainer.append(result);
 });
 
 paper.addEventListener('click', ()=>{
     playRound(2);
+    resultContainer.append(result);
+    result = ` (You: ${hScore} Computer: ${cScore}) | `;
+    resultContainer.append(result);
 })
 
-container.appendChild(rock);
-container.appendChild(paper);
-container.appendChild(scissors);
+
 
 
 
